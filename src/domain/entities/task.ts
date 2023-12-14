@@ -1,9 +1,10 @@
-export class Task {
-  id: number = 0;
+export default class Task {
+  id: number;
   title: string;
-  description: string;
-  constructor(title: string, description: string) {
+  done: boolean;
+  constructor(title: string) {
     this.title = title;
-    this.description = description;
+    this.done = false;
+    this.id = 0;
   }
 }

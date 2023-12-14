@@ -1,9 +1,5 @@
-import { Task } from './task';
+import Task from './task';
 
-export class ToDoList {
-  toDoList: Task[] = [];
-
-  constructor(Task: Task) {
-    this.toDoList.push(Task);
-  }
+export default class ToDoList {
+  myToDoList: Task[] = [];
 }

@@ -1,9 +1,9 @@
-import { Task } from '../entities/task';
+import Task from '../entities/task';
 
-export interface ToDoListFunctions {
-  toDoList: Task[];
+export default interface ToDoListFunctions {
+  myToDoList: Task[];
   addID: () => number;
-  addTask: () => void;
+  addTask: (nameOfTask: string) => void;
   showTasks: () => Task[];
   markAsDone: () => void;
   deleteTask: () => void;
