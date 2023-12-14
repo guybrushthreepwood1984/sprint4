@@ -1,3 +1,6 @@
+// = MAIN to start app
+// import routes here
+
 import express from 'express';
 
 const app = express();
