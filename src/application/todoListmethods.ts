@@ -14,23 +14,32 @@ export default class toDoListMethods
     this.myToDoList.push(addedTask);
   }
 
+  lookedForTaskIsOnList(searchedTask: string) {
+    const lookedForTask = this.myToDoList.find((task) => {
+      if (task.title === searchedTask) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    return lookedForTask;
+  }
+
   showTasks() {
     return this.myToDoList;
   }
-  markAsDone(searchedTask: string) {
-    const lookedForTask = this.myToDoList.find((task) => {
-      if (task.title === searchedTask) {
-        task.done = true;
-        return 1;
-      } else {
-        return undefined;
-      }
-    });
-    if (lookedForTask === undefined) {
-      console.log(`${searchedTask} is not on the list`);
-      return;
+  markAsDone(taskMarkAsDone: string) {
+    const lookedForTask = this.lookedForTaskIsOnList(taskMarkAsDone);
+    if (lookedForTask) {
+      this.myToDoList.find((task) => {
+        if (task.title === taskMarkAsDone) {
+          task.done = true;
+          return;
+        }
+      });
     }
   }
+
   deleteTask(searchedTask: string) {
     const index = this.myToDoList.findIndex(
       (task) => task.title === searchedTask

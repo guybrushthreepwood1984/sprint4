@@ -3,13 +3,19 @@
 
 import express from 'express';
 import toDoListMethods from '../../application/todoListmethods';
+import HttpResponse from './http.response';
 
 const router = express.Router();
 const myList = new toDoListMethods();
-
+const myHttpResponse = new HttpResponse();
 router.get('/', (req, res) => {
-  const tasks = myList.showTasks();
-  res.status(200).json(tasks);
+  const data = myList.showTasks();
+  try {
+    return myHttpResponse.Ok(res, data);
+  } catch (e) {
+    console.error(`error ${e}`);
+    return myHttpResponse.NotFound(res, e);
+  }
 });
 
 router.post('/:taskToAdd', (req, res) => {
@@ -20,8 +26,19 @@ router.post('/:taskToAdd', (req, res) => {
 
 router.put('/:taskMarkAsDone', (req, res) => {
   const taskMarkAsDone = req.params.taskMarkAsDone;
-  myList.markAsDone(taskMarkAsDone);
-  res.status(200).send(`Task ${taskMarkAsDone} marked as completed.`);
+  const taskIsOnList = myList.lookedForTaskIsOnList(taskMarkAsDone);
+  if (taskIsOnList) {
+    try {
+      myList.markAsDone(taskMarkAsDone);
+      const data = `${taskMarkAsDone} successfully marked as done`;
+      return myHttpResponse.Ok(res, data);
+    } catch (e) {
+      console.error(`error ${e}`);
+      return myHttpResponse.NotFound(res, e);
+    }
+  } else {
+    return myHttpResponse.NotFound(res, `Task ${taskMarkAsDone} not found`);
+  }
 });
 
 router.delete('/:taskToDelete', (req, res) => {
