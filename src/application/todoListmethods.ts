@@ -40,15 +40,3 @@ export default class toDoListMethods
     }
   }
 }
-
-const myList = new toDoListMethods();
-myList.addTask('lavadora');
-myList.addTask('pañales');
-myList.addTask('fregar platos');
-myList.markAsDone('fregar platos');
-myList.addTask('otra maldita lavadora');
-console.log(myList.showTasks());
-myList.deleteTask('pañales');
-console.log(myList.showTasks());
-myList.deleteTask('fregar platos');
-console.log(myList.showTasks());
