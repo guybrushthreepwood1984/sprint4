@@ -1,6 +1,6 @@
 import Task from '../entities/task';
 
-export default interface ToDoListFunctions {
+export default interface IToDoList {
   myToDoList: Task[];
   addTask: (nameOfTask: string) => void;
   showTasks: () => Task[];
