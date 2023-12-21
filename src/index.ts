@@ -28,7 +28,7 @@ app.use((req, res, next) => {
   const authHeader = req.headers.authorization;
 
   if (!authHeader || !authHeader.startsWith('Basic ')) {
-    return myHttpResponse.Unauthorized(res, 'Identify yourself, dude');
+    return myHttpResponse.Unauthorized(res, Error);
   } else {
     next();
   }
