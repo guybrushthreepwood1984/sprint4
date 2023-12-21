@@ -2,12 +2,12 @@
 
 Basic CRUD-ToDoList in restfult API.
 Data saved in memory.
-Accessible only with authentication
+Accessible only with authentication.
 
-POST: Add new task to ToDoList.
-GET: Get all entries.
-PUT: Mark task as done
-DELETE: Delete task from ToDoList
+- POST: Add new task to ToDoList.
+- GET: Get all entries.
+- PUT: Mark task as done
+- DELETE: Delete task from ToDoList
 
 ## Authentication
 
