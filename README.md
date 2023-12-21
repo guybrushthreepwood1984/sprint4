@@ -1,16 +1,29 @@
-# Ejemplo básico de TS - Hexagonal
+# ToDoList
+
+Basic CRUD-ToDoList in restfult API.
+Data saved in memory.
+Accessible only with authentication
+
+POST: Add new task to ToDoList.
+GET: Get all entries.
+PUT: Mark task as done
+DELETE: Delete task from ToDoList
+
+## Authentication
+
+usarname: admin
+password: supersecret
 
 ---
 
-En este ejemplo básico hay:
+Project based on this template: https://github.com/jclumbiarres/tsbasico (hexagonal branch)
 
 - ESLint
 - Prettier
 - ts-jest
 - nodemon
 - VSCode Debugging
-- Github Actions
-- Pequeño ejemplo de código funcional con import
+- Github Actions (disabled)
 
 La configuración del debugger apunta a src/index.ts como archivo de inicio del proyecto.
 
